@@ -1,0 +1,8 @@
+/bin/
+/@logDirectory@/
+/build
+/target/
+/.settings
+.project
+.classpath
+.factorypath

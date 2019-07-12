@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.javers.libs</groupId>
+		<artifactId>javers-libs</artifactId>
+		<version>0.0.1.0-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>lib-common</artifactId>
+	<packaging>jar</packaging>
+	<name>lib-common</name>
+
+	<build>
+		<!-- Generaremos un jar con las clases de test para emplearlo en el resto 
+			de los módulos y que sea transitiva -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+        </dependency>
+	</dependencies>
+
+	<profiles>
+		<!-- DEVELOPMENT environment profile -->
+		<profile>
+			<id>local</id>
+		</profile>
+
+	</profiles>
+    <properties>
+        <mockito.version>1.10.19</mockito.version>
+    </properties>
+
+
+
+</project>

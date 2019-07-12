@@ -1,0 +1,11 @@
+# Mensaje especificos del microservicio
+"messages":
+
+  "INVENTORY_CREATE_ERROR_DUPLICATE_KEY":
+    "httpCode": 409
+    "message": "Error al crear el registro, clave duplicada"
+
+  "CREATE_NEW_ORDER_NOTIFICATION_DUPLICATE_KEY":
+    "httpCode": 409
+    "message": "Error al crear el registro, clave duplicada"
+      
