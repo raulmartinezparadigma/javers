@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "66d7de58-8aba-4595-b46f-529b6d7ed886",
+    "name": "Javers POC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Juguete",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "63bf9d74-55be-4d84-9cbf-f04dea78e421",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);\r",
+              "postman.setGlobalVariable(\"codDivision\", jsonData.referencia.divisionVenta);\r",
+              "postman.setGlobalVariable(\"codDepartamento\", jsonData.referencia.departamento);\r",
+              "postman.setGlobalVariable(\"codFamilia\", jsonData.referencia.familia);\r",
+              "postman.setGlobalVariable(\"tipoMercancia\", jsonData.referencia.diferenciadorMercancia);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/toys",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "toys"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar Juguete",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "63bf9d74-55be-4d84-9cbf-f04dea78e421",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);\r",
+              "postman.setGlobalVariable(\"codDivision\", jsonData.referencia.divisionVenta);\r",
+              "postman.setGlobalVariable(\"codDepartamento\", jsonData.referencia.departamento);\r",
+              "postman.setGlobalVariable(\"codFamilia\", jsonData.referencia.familia);\r",
+              "postman.setGlobalVariable(\"tipoMercancia\", jsonData.referencia.diferenciadorMercancia);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\t\"toy\":{\n\t\t\t\"color\":\"Rojo\",\n\t\t\t\"productionYear\":\"1989\",\n\t\t\t\"description\":\"Castillo\"\n\t\t}\n\t}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/toys/Exin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "toys",
+            "Exin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Audit Juguete",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "x-jwt-assertion",
+            "type": "text",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InZIS0I2WUlseUhOcHcwMU5ZalRhcktXeDBvWSJ9.eyJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC91c2VybmFtZSI6IjUxMTY4NDgyIiwic3ViIjoiQjJFLUVNUExFQURPU1wvNTExNjg0ODIiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9yb2xlIjpbIkIyRS1FTVBMRUFET1NcL0FQUFlHbG9iYWwiLCJCMkUtRU1QTEVBRE9TXC9QUkhTTUdsb2JhbCIsIkIyRS1FTVBMRUFET1NcL0FQUEFHbG9iYWwiLCJJbnRlcm5hbFwvZXZlcnlvbmUiLCJCMkUtRU1QTEVBRE9TXC9BUFBLR2xvYmFsIiwiQjJFLUVNUExFQURPU1wvQVBQME5FVFNFR2xvYmFsIiwiQjJFLUVNUExFQURPU1wvUFJIR1JHbG9iYWwiLCJCMkUtRU1QTEVBRE9TXC9BUFA1R2xvYmFsIiwiQjJFLUVNUExFQURPU1wvQVBQMUdsb2JhbCIsIkIyRS1FTVBMRUFET1NcL0FRUDBHbG9iYWwiLCJCMkUtRU1QTEVBRE9TXC9BUFBJR2xvYmFsIiwiQjJFLUVNUExFQURPU1wvQVBQMFVNR2xvYmFsIiwiQjJFLUVNUExFQURPU1wvQVBQNkdsb2JhbCIsIkIyRS1FTVBMRUFET1NcL1BSSEFER2xvYmFsIiwiQjJFLUVNUExFQURPU1wvQTBYNElRR2xvYmFsIiwiQjJFLUVNUExFQURPU1wvQURBTV9TVUJTQ1JJQkVSIiwiQjJFLUVNUExFQURPU1wvQVBQMkdsb2JhbCIsIkIyRS1FTVBMRUFET1NcL1BSSFNQR2xvYmFsIiwiQjJFLUVNUExFQURPU1wvREZBR2xvYmFsIl0sImh0dHA6XC9cL3dzbzIub3JnXC9jbGFpbXNcL2Z1bGxuYW1lIjpbIjUxMTY4NDgyIiwiTUFOVUVMQSJdLCJpc3MiOiJodHRwczpcL1wvdWF0LmVsY29ydGVpbmdsZXMuZXMiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9sYXN0bmFtZSI6IlBVRU5URSIsInNjb3BlcyI6WyJkZWZhdWx0Il0sImV4cCI6MTUwMjM3NTY0MCwiY2xpZW50X25hbWUiOiJEZWZhdWx0QXBwbGljYXRpb24ifQ.d0k93SKJKMyq6dfuMFof9ut1VLG49_x7inn-41okd53nAWAUUauzLufSXS2jLLPtKf1WcRQs5H9FtiCpnmECaonVg3YfxVflyvFtlm9Qm4N1wUxuc-WyiL7KwvXQI5c9jPtA8qaiSSQSwD4qYca-0GhDgF7dlt_SFtVDmwjmrKvwGaqRc9AzIudHJWpRivS7U1jaU1mWUxK75SwECrZ5rhIPzYAlf_MViMYfguDtsJbN5VSIKD44o5oLpvbfyAKy7xM2EMHO5vURC5bWX5FBwqRNZcENugWtvdy0FAP-OH38IepSbexH2dPrkpRR5cQnVkrNClnve52l9ErUt8397Q",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Total-Count",
+            "type": "text",
+            "value": "true",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{url}}/toys/Exin/audit?audited_property=yyyyyyy&changes_from=1562709600000&changes_to=1562920115929",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "toys",
+            "Exin",
+            "audit"
+          ],
+          "query": [
+            {
+              "key": "audited_property",
+              "value": "yyyyyyy"
+            },
+            {
+              "key": "changes_from",
+              "value": "1562709600000"
+            },
+            {
+              "key": "changes_to",
+              "value": "1562920115929"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+spring:
+
+  output:
+    ansi:
+      # Activamos los colorines al arranque
+      enabled: ALWAYS
+  data:
+    mongodb:
+      uri: urlmongo
+
+
+# Puerto del servidor
+server:
+  port: 8080
+  # Tunning del server, para uso de procesadores coordinado
+  undertow:
+    ioThreads: 1
+    #workerThreads: 150
+    accesslog:
+      enabled: true
+#      compression: 
+#        enabled: true
+#        mimeTypes: application/json
+#        minResponseSize: 4096
+
+#Spring Boot Actuator
+management:
+  endpoints:
+    # Determinamos que endpoints publicamos y cuales no
+    enabled-by-default: false
+  endpoint:
+    # Publicamos unicamente el check health
+    health:
+      enabled: true
+  server:
+    servlet:
+      context-path: /actuator
+    port: 8080
+
+
+# Trazas I/O de los servicios
+logbook:
+  exclude:
+    - /actuator/**
+  filter.enabled: true
+  format.style: http
+  obfuscate:
+    headers:
+      - Authorization
+      - x-jwt-assertion
+    parameters:
+      - access_token
+      - password
+  write:
+    category: http.javers-ms
+    level: INFO
+
+    

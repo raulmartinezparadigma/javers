@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Añadimos el base de Spring boot y sobreescribiremos las variables   -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- Asignamos los valores adecuados a las variables de entorno -->
+    <!--  -->
+    <property name="LOG_PATH" value="./logs"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/ms-enrollment.log"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID} --- [%15.15t] %c{10}: %m%n"/>
+
+    <!-- Appender para nuestra app -->
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+
+    <!-- Appender de la consola  -->
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- Comportamiento asíncrono de los logs -->
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>2048</queueSize>
+        <maxFlushTime>60000</maxFlushTime>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+
+    <logger name="ch.qos.logback" level="ERROR">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+
+    <logger name="com.javers" level="DEBUG">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <logger name="uk.co.jemos.podam" level="ERROR">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <logger name="org.springframework.security" level="DEBUG">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC_FILE"/>
+    </root>
+</configuration>

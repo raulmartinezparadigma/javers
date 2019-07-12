@@ -1,0 +1,8 @@
+# Mensaje especificos del microservicio
+"messages":
+
+  "MS_SAMPLE_ERROR_SPECIAL_VALUE_SAMPLE":
+    "httpCode": 500
+    "message": "Esto es un error definido como ejemplo"
+        
+      

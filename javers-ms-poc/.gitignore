@@ -1,0 +1,11 @@
+/bin/
+/@logDirectory@/
+/target/
+/.settings
+.project
+.classpath
+*.log
+
+## IntelliJ support
+.idea/**
+**.iml
