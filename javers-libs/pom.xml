@@ -229,7 +229,7 @@
 							<dependency>
 								<groupId>mysql</groupId>
 								<artifactId>mysql-connector-java</artifactId>
-								<version>5.1.29</version>
+								<version>8.0.28</version>
 							</dependency>
 						</dependencies>
 					</plugin>
@@ -283,10 +283,10 @@
 		<!-- Encoding del proyecto -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- Versión de java -->
+		<!-- VersiÃ³n de java -->
 		<java-version>1.8</java-version>
 
-		<!-- Versión de spring boot -->
+		<!-- VersiÃ³n de spring boot -->
 		<spring-boot.version>2.0.4.RELEASE</spring-boot.version>
 
 		<spring-data-rest-webmvc.version>3.0.6.RELEASE</spring-data-rest-webmvc.version>
